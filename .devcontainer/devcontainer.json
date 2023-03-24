@@ -1,0 +1,20 @@
+{
+    "name": "My Rust Project",
+    "image": "ubuntu:20.04",
+    "forwardPorts": [],
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": ["rust-lang.rust"],
+    "remoteUser": "root",
+    "postCreateCommand": [
+      "apt update",
+      "apt-get install -y --no-install-recommends libelf1 libelf-dev zlib1g-dev make clang llvm",
+      "wget -nv -O - https://sh.rustup.rs | sh -s -- -y",
+      "source $HOME/.cargo/env",
+      "rustup default stable"
+    ],
+    "build": {
+      "command": "make build"
+    }
+  }
