@@ -19,10 +19,20 @@ a new repository in your account with the same files and structure as this templ
 
 ### Use docker
 
-Run the following code and you will enter a docker environment with all the basic development dependencies and tools.
+Run the following code to run the eBPF code from the cloud to your local machine in one line:
 
-```sh
-docker run --rm -it --privileged ghcr.io/eunomia-bpf/libbpf-rs-template:latest
+```console
+$ sudo docker run --rm -it --privileged ghcr.io/eunomia-bpf/libbpf-rs-template:latest
+[sudo] password for xxx: 
+Tracing run queue latency higher than 10000 us
+TIME     COMM             TID     LAT(us)       
+12:09:19 systemd-udevd    30786   18300         
+12:09:19 systemd-udevd    30796   21941         
+12:09:19 systemd-udevd    30793   10323         
+12:09:19 systemd-udevd    30795   14827         
+12:09:19 systemd-udevd    30790   17973         
+12:09:19 systemd-udevd    30793   12328         
+12:09:19 systemd-udevd    30796   28721
 ```
 
 ## **Features**
