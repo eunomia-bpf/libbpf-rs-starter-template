@@ -10,6 +10,8 @@ Dockerfile, and GitHub action, along with all necessary dependencies to simplify
 
 Also, this is a minimal libbpf-rs project, you can read the code to understand how to write ebpf programs using libbpf-rs.
 
+
+
 ## **Getting Started**
 
 To get started, simply click the "Use this template" button on the GitHub repository page. This will create
@@ -20,22 +22,7 @@ a new repository in your account with the same files and structure as this templ
 Run the following code and you will enter a docker environment with all the basic development dependencies and tools.
 
 ```sh
-docker build -t any:any .
-docker run -it any:any
-# or use our image
 docker run -it ghcr.io/eunomia-bpf/libbpf-rs-template:latest
-```
-
-### Build and Run
-
-Assuming you have installed the required dependencies or are in a docker environment,
-the following command will compile the sample ebpf application.
-
-```sh
-make
-./target/release/runqslower
-# or use cargo directly
-cargo run
 ```
 
 ## **Features**
@@ -65,8 +52,19 @@ git clone https://github.com/your_username/your_new_repository.git
 
 ### **3. Install dependencies**
 
-For dependencies, it varies from distribution to distribution.
-You can refer to dockerfile for installation.
+For dependencies, it varies from distribution to distribution. You can refer to dockerfile for installation.
+
+On Ubuntu, you may run `make install` or
+
+```sh
+sudo apt-get install -y --no-install-recommends \
+        libelf1 libelf-dev zlib1g-dev \
+        make clang llvm
+```
+
+to install dependencies. 
+
+Use `wget -nv -O - https://sh.rustup.rs | sh -s -- -y` to install rust toolchain.
 
 ### **4. Build the project**
 
@@ -77,6 +75,16 @@ make build
 ```
 
 This will compile your code and create the necessary binaries.
+
+### **5. Run the project**
+
+the following command will run the sample ebpf application.
+
+```sh
+./target/release/runqslower
+# or use cargo directly
+cargo run
+```
 
 ### **7. GitHub Actions**
 
