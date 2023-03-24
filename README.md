@@ -42,6 +42,28 @@ TIME     COMM             TID     LAT(us)
 12:09:19 systemd-udevd    30796   28721
 ```
 
+### Use Nix
+
+Using [direnv](https://github.com/direnv/direnv) and nix, you can quickly access a dev shell with a complete development environment.
+
+With direnv, you can automatically load the required dependencies when you enter the directory.
+This way you don't have to worry about installing dependencies to break your other project development environment.
+
+```sh
+# run runqslower
+nix run .#
+# build runqslower
+nix build .#
+```
+If you want use nix flake without direnv, simply run:
+
+```sh
+nix develop
+# Of course, the previous command can also be used
+nix run .#
+nix build .#
+```
+
 ## **Features**
 
 This starter template includes the following features:
