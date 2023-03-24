@@ -10,7 +10,7 @@ Dockerfile, and GitHub action, along with all necessary dependencies to simplify
 
 Also, this is a minimal libbpf-rs project, you can read the code to understand how to write ebpf programs using libbpf-rs.
 
-
+借助于 GitHub 模板和 Github Codespace，可以轻松构建 eBPF 项目和开发环境，一键在线编译运行 eBPF 程序。关于中文的文档和详细的 eBPF 开发教程，可以参考：https://github.com/eunomia-bpf/bpf-developer-tutorial
 
 ## **Getting Started**
 
@@ -22,7 +22,7 @@ a new repository in your account with the same files and structure as this templ
 Run the following code and you will enter a docker environment with all the basic development dependencies and tools.
 
 ```sh
-docker run -it ghcr.io/eunomia-bpf/libbpf-rs-template:latest
+docker run --rm -it --privileged ghcr.io/eunomia-bpf/libbpf-rs-template:latest
 ```
 
 ## **Features**
@@ -57,6 +57,7 @@ For dependencies, it varies from distribution to distribution. You can refer to 
 On Ubuntu, you may run `make install` or
 
 ```sh
+sudo apt update
 sudo apt-get install -y --no-install-recommends \
         libelf1 libelf-dev zlib1g-dev \
         make clang llvm

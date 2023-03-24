@@ -15,6 +15,24 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: 'recursive'
+      - name: install deps
+        run: |
+          sudo apt-get install -y --no-install-recommends \
+          wget pkg-config build-essential zlib1g-dev \
+          clang llvm libelf1 libelf-dev
+
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      - name: Cache rust
+        uses: Swatinem/rust-cache@v2
+
+      - name: build package
+        run:  make build
 
       # setup Docker buld action
       - name: Set up Docker Buildx
