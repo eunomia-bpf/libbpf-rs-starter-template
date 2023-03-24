@@ -49,6 +49,14 @@ Using [direnv](https://github.com/direnv/direnv) and nix, you can quickly access
 With direnv, you can automatically load the required dependencies when you enter the directory.
 This way you don't have to worry about installing dependencies to break your other project development environment.
 
+See how to install direnv and Nix:
+- direnv: https://github.com/direnv/direnv/blob/master/docs/installation.md
+- Nix: run
+```
+sh <(curl -L https://nixos.org/nix/install) --daemon
+```
+
+Build and run runqslower with nix:
 ```sh
 # run runqslower
 nix run .#
