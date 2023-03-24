@@ -1,0 +1,17 @@
+FROM ubuntu:22.04
+
+WORKDIR /root/
+COPY . /root/
+
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends \
+      wget pkg-config build-essential zlib1g-dev clang llvm libelf1 libelf-dev && \
+    apt-get install -y --no-install-recommends ca-certificates	&& \
+	update-ca-certificates	&& \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN wget -nv -O - https://sh.rustup.rs | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+ENTRYPOINT ["/bin/bash"]
