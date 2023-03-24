@@ -15,6 +15,29 @@ Also, this is a minimal libbpf-rs project, you can read the code to understand h
 To get started, simply click the "Use this template" button on the GitHub repository page. This will create
 a new repository in your account with the same files and structure as this template.
 
+### Use docker
+
+Run the following code and you will enter a docker environment with all the basic development dependencies and tools.
+
+```sh
+docker build -t any:any .
+docker run -it any:any
+# or use our image
+docker run -it ghcr.io/eunomia-bpf/libbpf-rs-template:latest
+```
+
+### Build and Run
+
+Assuming you have installed the required dependencies or are in a docker environment,
+the following command will compile the sample ebpf application.
+
+```sh
+make
+./target/release/runqslower
+# or use cargo directly
+cargo run
+```
+
 ## **Features**
 
 This starter template includes the following features:
@@ -29,6 +52,8 @@ This starter template includes the following features:
 ### **1. Create a new repository using this template**
 
 Click the "Use this template" button on the GitHub repository page to create a new repository based on this template.
+
+If you don't want to see generate from in your repository, relax, just clone and rerun `git init`.
 
 ### **2. Clone your new repository**
 
