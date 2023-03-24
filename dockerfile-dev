@@ -11,8 +11,7 @@ RUN apt-get update -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN wget -nv -O - https://sh.rustup.rs | sh -s -- -y 
-RUN make
-ENV PATH="/root/.cargo/bin:${PATH}"
+RUN wget -nv -O - https://sh.rustup.rs | sh -s -- -y
+RUN PATH="$HOME/.cargo/bin:${PATH}" make
 
 ENTRYPOINT ["/bin/bash"]
